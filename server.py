@@ -77,6 +77,7 @@ def _generate_jwt(secret: str, sub: str, exp_seconds: int) -> str:
 
 @mcp.tool()
 async def get_server_status(
+    _track("get_server_status")
     base_url: Optional[str] = "http://localhost:7070",
 ) -> dict:
     """
@@ -103,6 +104,7 @@ async def get_server_status(
 
 @mcp.tool()
 async def signin_user(
+    _track("signin_user")
     email: str,
     password: str,
     base_url: Optional[str] = "http://localhost:7070",
@@ -138,6 +140,7 @@ async def signin_user(
 
 @mcp.tool()
 async def signup_user(
+    _track("signup_user")
     email: str,
     password: str,
     base_url: Optional[str] = "http://localhost:7070",
@@ -173,6 +176,7 @@ async def signup_user(
 
 @mcp.tool()
 async def activate_account(
+    _track("activate_account")
     activation_token: str,
     base_url: Optional[str] = "http://localhost:7070",
 ) -> dict:
@@ -207,6 +211,7 @@ async def activate_account(
 
 @mcp.tool()
 async def list_api_keys(
+    _track("list_api_keys")
     auth_token: str,
     base_url: Optional[str] = "http://localhost:7070",
 ) -> dict:
@@ -240,6 +245,7 @@ async def list_api_keys(
 
 @mcp.tool()
 async def create_api_key(
+    _track("create_api_key")
     auth_token: str,
     label: str,
     base_url: Optional[str] = "http://localhost:7070",
@@ -279,6 +285,7 @@ async def create_api_key(
 
 @mcp.tool()
 async def revoke_api_key(
+    _track("revoke_api_key")
     auth_token: str,
     api_key_id: str,
     base_url: Optional[str] = "http://localhost:7070",
@@ -313,6 +320,7 @@ async def revoke_api_key(
 
 @mcp.tool()
 async def generate_jwt_token(
+    _track("generate_jwt_token")
     secret: str,
     sub: str,
     exp: Optional[str] = "1year",
